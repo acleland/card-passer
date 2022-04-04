@@ -3,20 +3,14 @@ import { useGameContext } from '../context/GameContext';
 import CardList from './CardList';
 
 export default function Player({ player, hand }) {
-  const { to, setTo, setFrom, selectedCard, setSelectedCard } = useGameContext();
+  const { to, setTo } = useGameContext();
   return (
     <div
       className={`player ${to === player ? 'selected-player' : ''}`}
       onClick={() => setTo(player)}
     >
       <p>Player {player}</p>
-      <CardList
-        player={player}
-        cards={hand}
-        setFrom={setFrom}
-        selectedCard={selectedCard}
-        setSelectedCard={setSelectedCard}
-      />
+      <CardList player={player} cards={hand} />
     </div>
   );
 }
